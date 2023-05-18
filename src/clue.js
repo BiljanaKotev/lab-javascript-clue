@@ -4,7 +4,6 @@
 
 const suspectsArray = [
   {
-    fullName: "Jacob Green",
     firstName: "Jacob",
     lastName: "Green",
     occupation: "Entrepreneur",
@@ -14,7 +13,6 @@ const suspectsArray = [
     color: "green",
   },
   {
-    fullName: "Doctor Orchid",
     firstName: "Doctor",
     lastName: "Orchid",
     occupation: "Scientist",
@@ -24,7 +22,6 @@ const suspectsArray = [
     color: "white",
   },
   {
-    fullName: "Victor Plum",
     firstName: "Victor",
     lastName: " Plum",
     occupation: "Designer",
@@ -35,7 +32,6 @@ const suspectsArray = [
   },
 
   {
-    fullName: "Kasandra Scarlet",
     firstName: "Kasandra",
     lastName: "Scarlet",
     occupation: " Actor",
@@ -46,7 +42,6 @@ const suspectsArray = [
   },
 
   {
-    fullName: "Eleanor Peacock",
     firstName: "Eleanor",
     lastName: "Peacock",
     occupation: "Socialité",
@@ -57,7 +52,6 @@ const suspectsArray = [
   },
 
   {
-    fullName: "Jack Mustard",
     firstName: "Jack",
     lastName: " Mustard",
     occupation: "Retired Football player",
@@ -154,6 +148,7 @@ function selectRandom(randomArr) {
     return undefined;
   }
   const randomIndex = Math.floor(Math.random() * randomArr.length);
+
   return randomArr[randomIndex];
 }
 
@@ -179,11 +174,12 @@ console.log(pickMystery);
 // ITERATION 3
 
 function revealMystery(envelope) {
-  const fullMysteryName = `${selectRandom(suspectsArray).fullName}`;
+  const mysteryFirstName = `${selectRandom(suspectsArray).firstName}`;
+  const mysteryLastName = `${selectRandom(suspectsArray).lastName}`;
   const mysteryWeapon = `${selectRandom(weaponsArray).name}`;
   const mysteryRoom = `${selectRandom(roomsArray).name}`;
 
-  return `${fullMysteryName} killed Mr. Boddy using the ${mysteryWeapon} in the ${mysteryRoom}!`;
+  return `${mysteryFirstName} ${mysteryLastName} killed Mr. Boddy using the ${mysteryWeapon} in the ${mysteryRoom}!`;
 }
 
 console.log(revealMystery(pickMystery));
