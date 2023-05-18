@@ -4,6 +4,7 @@
 
 const suspectsArray = [
   {
+    fullName: "Jacob Green",
     firstName: "Jacob",
     lastName: "Green",
     occupation: "Entrepreneur",
@@ -13,6 +14,7 @@ const suspectsArray = [
     color: "green",
   },
   {
+    fullName: "Doctor Orchid",
     firstName: "Doctor",
     lastName: "Orchid",
     occupation: "Scientist",
@@ -22,6 +24,7 @@ const suspectsArray = [
     color: "white",
   },
   {
+    fullName: "Victor Plum",
     firstName: "Victor",
     lastName: " Plum",
     occupation: "Designer",
@@ -32,6 +35,7 @@ const suspectsArray = [
   },
 
   {
+    fullName: "Kasandra Scarlet",
     firstName: "Kasandra",
     lastName: "Scarlet",
     occupation: " Actor",
@@ -42,6 +46,7 @@ const suspectsArray = [
   },
 
   {
+    fullName: "Eleanor Peacock",
     firstName: "Eleanor",
     lastName: "Peacock",
     occupation: "Socialité",
@@ -52,6 +57,7 @@ const suspectsArray = [
   },
 
   {
+    fullName: "Jack Mustard",
     firstName: "Jack",
     lastName: " Mustard",
     occupation: "Retired Football player",
@@ -143,10 +149,41 @@ const weaponsArray = [
 
 // ITERATION 2
 
-function selectRandom() {}
+function selectRandom(randomArr) {
+  if (randomArr.length === 0) {
+    return undefined;
+  }
+  const randomIndex = Math.floor(Math.random() * randomArr.length);
+  return randomArr[randomIndex];
+}
 
-function pickMystery() {}
+// Object to be returned
+let mysteryObj = {
+  suspect: "",
+  weapon: "",
+  room: "",
+};
+
+function pickMystery() {
+  let mysteryObj = {
+    suspect: selectRandom(suspectsArray),
+    weapon: selectRandom(weaponsArray),
+    room: selectRandom(roomsArray),
+  };
+
+  return mysteryObj;
+}
+
+console.log(pickMystery);
 
 // ITERATION 3
 
-function revealMystery() {}
+function revealMystery(envelope) {
+  const fullMysteryName = `${selectRandom(suspectsArray).fullName}`;
+  const mysteryWeapon = `${selectRandom(weaponsArray).name}`;
+  const mysteryRoom = `${selectRandom(roomsArray).name}`;
+
+  return `${fullMysteryName} killed Mr. Boddy using the ${mysteryWeapon} in the ${mysteryRoom}!`;
+}
+
+console.log(revealMystery(pickMystery));
