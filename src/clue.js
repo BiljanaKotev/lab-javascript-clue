@@ -174,12 +174,12 @@ console.log(pickMystery);
 // ITERATION 3
 
 function revealMystery(envelope) {
-  const mysteryFirstName = `${selectRandom(suspectsArray).firstName}`;
-  const mysteryLastName = `${selectRandom(suspectsArray).lastName}`;
-  const mysteryWeapon = `${selectRandom(weaponsArray).name}`;
-  const mysteryRoom = `${selectRandom(roomsArray).name}`;
+  const mysterySuspectFirstName = `${envelope.suspect.firstName}`;
+  const mysterySuspectLastName = `${envelope.suspect.lastName}`;
+  const mysteryWeapon = `${envelope.weapon.name}`;
+  const mysteryRoom = `${envelope.room.name}`;
 
-  return `${mysteryFirstName} ${mysteryLastName} killed Mr. Boddy using the ${mysteryWeapon} in the ${mysteryRoom}!`;
+  return `${mysterySuspectFirstName} ${mysterySuspectLastName} killed Mr. Boddy using the ${mysteryWeapon} in the ${mysteryRoom}!`;
 }
 
 console.log(revealMystery(pickMystery));
